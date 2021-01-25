@@ -24,7 +24,7 @@ const article = new Schema({
   updateAt: Date,
   auther: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users',
+    ref: 'user',
   },
   tag: [String],
 });

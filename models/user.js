@@ -23,7 +23,7 @@ const user = Schema(
     },
 
     dob: Date,
-    Follower: [{ type: Schema.ObjectId, ref: 'users' }],
+    Follower: [{ type: Schema.ObjectId, ref: 'user' }],
   },
   {
     toJSON: {
