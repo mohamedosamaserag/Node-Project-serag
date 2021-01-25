@@ -5,15 +5,20 @@ const mongoose = require('mongoose');
 const { router } = require('./routes');
 
 const url = 'mongodb+srv://seragmo:mo2281037@cluster0.4y0cr.mongodb.net/Blog?';
-mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
-    .then(() => console.log("Database Connected Successfully"))
-    .catch(err => console.log(err));
+mongoose
+  .connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
+  .then(() => console.log('Database Connected Successfully'))
+  .catch((err) => console.log(err));
 
 // mongoose.connect('mongodb://localhost:27017/Blog', { useNewUrlParser: true });
 
 app.use(express.json());
 
-const { port = 3000 } = process.env;
+// const { PORT = 8000 } = process.env;
 
 app.use('/', router);
 
@@ -44,6 +49,15 @@ app.get((err, req, res, next) => {
   res.status(503).end();
 });
 
-app.listen(port, () => {
-  console.log('Running on port : ', port);
+// app.listen(PORT, () => {
+//   console.log('Running on port : ', PORT);
+// });
+
+// app.listen(PORT,()=>{
+//   console
+// })
+
+const { PORT = 3000 } = process.env;
+app.listen(PORT, () => {
+  console.log('listen to port', PORT);
 });
