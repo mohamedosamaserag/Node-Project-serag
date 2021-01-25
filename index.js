@@ -4,7 +4,12 @@ const app = express();
 const mongoose = require('mongoose');
 const { router } = require('./routes');
 
-mongoose.connect('mongodb://localhost:27017/Blog', { useNewUrlParser: true });
+const url = 'mongodb+srv://seragmo:mo2281037@cluster0.4y0cr.mongodb.net/Blog?';
+mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
+    .then(() => console.log("Database Connected Successfully"))
+    .catch(err => console.log(err));
+
+// mongoose.connect('mongodb://localhost:27017/Blog', { useNewUrlParser: true });
 
 app.use(express.json());
 
